@@ -47,7 +47,6 @@
 	$(function(){
 		$("input").change(function(t)
 		{
-			$('.wait_time').hide();
 			var value = $(this).attr("value");
 			$.get('/datafy/' + value + '/', function(data) {
 			console.log(JSON.stringify(data));
@@ -56,30 +55,8 @@
     	console.log("done running");
 		});
 	});
-	
-	
-	$(function(){
-		$("sub_sel").change(function(t)
-		{
-			$('.wait_time').hide();
-			var value = $(this).attr("value");
-			$.get('/datafy/' + value + '/', function(data) {
-			console.log(JSON.stringify(data));
-			heatMap(map,data);
-    	});
-    	console.log("done running");
-		});
-	});
-	
-	$(function(){
-		$('.wait_time').select(function(){
-			$('.wait_time').show("slow");
-		});
-	});
-		
 		
     $(document).ready(function() {
-		$('.wait_time').hide();
 		var value = "avg_stay";
 		console.log(value);
 		// $.ajax({
@@ -154,8 +131,8 @@
 		<td  id="map_canvas" style="height:400px;"></td>
 		<td style="border:1px solid #000;" cellpadding=5>
 		<input type="radio" name="data_set" value="avg_stay">Average Hospital Stay</input><br>
-		<input type="radio" name="data_set" value="wait_time_4" class="wait_time">A&E wait times less than 4 hours</input><br>
-		<input type="radio" name="data_set" value="wait_time_4" class="wait_time">A&E wait times less than 8 hours</input><br>
+		<input type="radio" name="data_set" value="wait_time_4">A&E wait times over 4 hours</input><br>
+		<input type="radio" name="data_set" value="wait_time_8">A&E wait times over 8 hours</input><br>
 		<input type="radio" name="data_set" value="bed_avail">Available beds</input><br>
 		<input type="radio" name="data_set" value="bed_occ">Bed Occupancy</input><br>
 		</td>

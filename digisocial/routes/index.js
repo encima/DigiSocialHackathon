@@ -19,10 +19,10 @@ exports.get = function(req, res) {
           query = "SELECT lhb, total FROM avg_len_stay;";
           break;
         case("wait_time_4"):
-          query = "SELECT lhb, all_lt_4_hrs_pc AS total FROM A_and_E_times_10_11;";
+          query = "SELECT lhb, all_attendences - (all_attendences * (all_lt_4_hrs_pc/100)) AS total FROM A_and_E_times_10_11;";
           break;
         case("wait_time_8"):
-          query = "SELECT lhb, all_lt_8_hrs_pc AS total FROM A_and_E_times_10_11;";
+          query = "SELECT lhb, all_attendences - (all_attendences * (all_lt_8_hrs_pc/100)) AS total FROM A_and_E_times_10_11;";
           break;
         case("bed_avail"):
           query = "Select lhb, total from bed_avail;";
